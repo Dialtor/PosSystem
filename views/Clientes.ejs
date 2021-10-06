@@ -12,30 +12,7 @@
     <!--  /Booststrap -->
     <link rel="stylesheet" href="/css/index2.css">
 
-     <style>
-                .table-sortable th {
-        cursor: pointer;
-        }
-
-        .table-sortable .th-sort-asc::after {
-        content: "\25b4";
-        }
-
-        .table-sortable .th-sort-desc::after {
-        content: "\25be";
-        }
-
-        .table-sortable .th-sort-asc::after,
-        .table-sortable .th-sort-desc::after {
-        margin-left: 5px;
-        }
-
-        .table-sortable .th-sort-asc,
-        .table-sortable .th-sort-desc {
-        background: rgba(0, 0, 0, 0.1);
-        }
-
-     </style>
+    
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
@@ -48,59 +25,7 @@
         <h1 class="tituloheader">Cliente</h1>
     </header>
 
-    <div class="menu__side" id="menu_side">
-
-        <div class="name__page">
-            <i class="fab fa-buffer works"></i>
-            <h4>Sistema POS</h4>
-        </div>
-
-        <div class="options__menu">
-
-            <a href="index2.html" class="selected">
-                <div class="option">
-                    <i class="fas fa-home" title="Inicio" style="color:darkgoldenrod;"></i>
-                    <h4>Inicio</h4>
-                </div>
-            </a>
-
-            <a href="/Perfil">
-                <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
-                    <h4>Perfil</h4>
-                </div>
-            </a>
-            <a href="/Productos">
-                <div class="option">
-                    <i class="fas fa-archive" title="Registros"></i>
-                    <h4>Productos</h4>
-                </div>
-            </a>
-
-            <a href="registro-form-factura.html">
-                <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Factura</h4>
-                </div>
-            </a>
-
-            <a href="/Clientes">
-                <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Cliente</h4>
-                </div>
-            </a>
-
-            <a href="/">
-                <div class="option">
-                    <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>Salir</h4>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
+    <%- include('./layouts/sidebar.ejs'); %> 
 
     <main>
         <div class="row">
@@ -109,7 +34,7 @@
               <button type="button" onclick="window.location.href='./ClientesRegistro'" class="btn btn-primary">Ingresar Nuevo Cliente</button>
                 <br>
               
-              <table class="table table-sortable">
+              <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">ID</th>
@@ -212,53 +137,7 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
 
-  
-   <script>
-       /**
- * Sorts a HTML table.
- * 
- * @param {HTMLTableElement} table The table to sort
- * @param {number} column The index of the column to sort
- * @param {boolean} asc Determines if the sorting will be in ascending
- */
-function sortTableByColumn(table, column, asc = true) {
-    const dirModifier = asc ? 1 : -1;
-    const tBody = table.tBodies[0];
-    const rows = Array.from(tBody.querySelectorAll("tr"));
 
-    // Sort each row
-    const sortedRows = rows.sort((a, b) => {
-        const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
-        const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
-
-        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
-    });
-
-    // Remove all existing TRs from the table
-    while (tBody.firstChild) {
-        tBody.removeChild(tBody.firstChild);
-    }
-
-    // Re-add the newly sorted rows
-    tBody.append(...sortedRows);
-
-    // Remember how the column is currently sorted
-    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
-    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
-    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
-}
-
-document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-    headerCell.addEventListener("click", () => {
-        const tableElement = headerCell.parentElement.parentElement.parentElement;
-        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
-        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
-
-        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
-    });
-});
-
-   </script>
     <script src="/js/menu.js"></script>
   
 </body>
