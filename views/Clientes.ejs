@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <!-- Booststrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--  /Booststrap -->
+    <link rel="stylesheet" href="/css/index2.css">
+
+     <style>
+                .table-sortable th {
+        cursor: pointer;
+        }
+
+        .table-sortable .th-sort-asc::after {
+        content: "\25b4";
+        }
+
+        .table-sortable .th-sort-desc::after {
+        content: "\25be";
+        }
+
+        .table-sortable .th-sort-asc::after,
+        .table-sortable .th-sort-desc::after {
+        margin-left: 5px;
+        }
+
+        .table-sortable .th-sort-asc,
+        .table-sortable .th-sort-desc {
+        background: rgba(0, 0, 0, 0.1);
+        }
+
+     </style>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body">
+
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <h1 class="tituloheader">Cliente</h1>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fab fa-buffer works"></i>
+            <h4>Sistema POS</h4>
+        </div>
+
+        <div class="options__menu">
+
+            <a href="index2.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio" style="color:darkgoldenrod;"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="/Perfil">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>Perfil</h4>
+                </div>
+            </a>
+            <a href="/Productos">
+                <div class="option">
+                    <i class="fas fa-archive" title="Registros"></i>
+                    <h4>Productos</h4>
+                </div>
+            </a>
+
+            <a href="registro-form-factura.html">
+                <div class="option">
+                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <h4>Factura</h4>
+                </div>
+            </a>
+
+            <a href="/Clientes">
+                <div class="option">
+                    <i class="far fa-id-badge" title="Contacto"></i>
+                    <h4>Cliente</h4>
+                </div>
+            </a>
+
+            <a href="/">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>Salir</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+        <div class="row">
+            <div class="col-12 table-responsive">
+            
+              <button type="button" onclick="window.location.href='./ClientesRegistro'" class="btn btn-primary">Ingresar Nuevo Cliente</button>
+                <br>
+              
+              <table class="table table-sortable">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre Cliente</th>
+                    <th scope="col">Cedula</th>
+                    <th scope="col">Dirección</th>
+                    <th scope="col">Celular</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    
+
+                <% clientes.forEach(function (cliente) { %> 
+                <tr id="id_<%= cliente._id %>">
+                    <th scope="row"><%= cliente._id %></th>
+                    <td><%- cliente.nombreCliente %></td>
+                    <td><%- cliente.cedulaCliente %></td>
+                    <td><%- cliente.direccionCliente %></td>
+                    <td><%- cliente.celularCliente %></td>
+                    <td><%= cliente.correoCliente %></td>
+                    <td>
+                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
+                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+
+                <% }) %>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        
+        
+        <!-- <form action="http://localhost:4000/cliente" class="bordeporlados " method="POST" id="formcliente">
+            <div class="form-group row input_edit ">
+                <label for="nombreCliente" class="col-sm-2 col-form-label">Nombre del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" placeholder="Juan Jimenez" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="cedulaCliente" class="col-sm-2 col-form-label">Cédula del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="cedulaCliente" name="cedulaCliente" placeholder="1192804871" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="direccionCliente" class="col-sm-2 col-form-label">Dirección del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="direccionCliente" name="direccionCliente" placeholder="Cra 16 # 56 - 8" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="celularCliente" class="col-sm-2 col-form-label">Celular del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="celularCliente" name="celularCliente" placeholder="3043568926" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="correoCliente" class="col-sm-2 col-form-label">Correo del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="correoCliente" name="correoCliente" placeholder="juanjimenez@gmail.com" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+
+            </div>
+
+        </form>
+        <form action="http://localhost:4000/cliente/:cedulaCliente" class="bordeporlados " method="POST">
+            <div class="form-group row input_edit ">
+                <label for="cliente_id" class="col-sm-2 col-form-label">Eliminar un cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="cliente_id" name="cliente_id" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+        </form> -->
+    </main>
+    <div id="list">
+
+    </div>
+     <!-- JQUERY -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  
+   <script>
+       /**
+ * Sorts a HTML table.
+ * 
+ * @param {HTMLTableElement} table The table to sort
+ * @param {number} column The index of the column to sort
+ * @param {boolean} asc Determines if the sorting will be in ascending
+ */
+function sortTableByColumn(table, column, asc = true) {
+    const dirModifier = asc ? 1 : -1;
+    const tBody = table.tBodies[0];
+    const rows = Array.from(tBody.querySelectorAll("tr"));
+
+    // Sort each row
+    const sortedRows = rows.sort((a, b) => {
+        const aColText = a.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+        const bColText = b.querySelector(`td:nth-child(${ column + 1 })`).textContent.trim();
+
+        return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
+    });
+
+    // Remove all existing TRs from the table
+    while (tBody.firstChild) {
+        tBody.removeChild(tBody.firstChild);
+    }
+
+    // Re-add the newly sorted rows
+    tBody.append(...sortedRows);
+
+    // Remember how the column is currently sorted
+    table.querySelectorAll("th").forEach(th => th.classList.remove("th-sort-asc", "th-sort-desc"));
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-asc", asc);
+    table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
+}
+
+document.querySelectorAll(".table-sortable th").forEach(headerCell => {
+    headerCell.addEventListener("click", () => {
+        const tableElement = headerCell.parentElement.parentElement.parentElement;
+        const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
+        const currentIsAscending = headerCell.classList.contains("th-sort-asc");
+
+        sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
+    });
+});
+
+   </script>
+    <script src="/js/menu.js"></script>
+  
+</body>
+
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <!-- Booststrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--  /Booststrap -->
+    <link rel="stylesheet" href="../css/index2.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main{
+    padding: 20px;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+}
+
+.icon__menu{
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(10px);
+}
+
+.icon__menu i{
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.menu__side{
+    width: 80px;
+    height: 100%;
+    background: #1d1e1f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #1d1e1f;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar{
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+.name__page{
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i{
+    width: 20px;
+    margin-right: 20px;
+}
+
+.options__menu{
+    padding: 20px 30px;
+    position: absolute;
+    top: 80px;
+}
+
+.options__menu a{
+    color: #ffffffb2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover{
+    color: white;
+}
+
+.options__menu .option{
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i{
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4{
+    font-weight: 300;
+    cursor: pointer;
+}
+
+.tituloheader{
+    position: relative;
+    margin-left: 30px;
+}
+
+/* a.selected{
+    color: #fff;
+}
+
+.selected:before{
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: white;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+} */
+
+/*Clases para usar en JavaScript*/
+
+.body_move{
+    margin-left: 250px;
+}
+
+.menu__side_move{
+    width: 250px;
+}
+
+
+@media screen and (max-width: 760px){
+    .body_move{
+        margin-left: 0px;
+    }
+
+    .menu__side_move{
+        width: 80px;
+        left: -80px;
+    }
+}
+    </style>
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body">
+
+    <header>
+        <div class="icon__menu">
+            <i class="fas fa-bars" id="btn_open"></i>
+        </div>
+        <h1 class="tituloheader">Cliente</h1>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fab fa-buffer works"></i>
+            <h4>Sistema POS</h4>
+        </div>
+
+        <div class="options__menu">
+
+            <a href="index2.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio" style="color:darkgoldenrod;"></i>
+                    <h4>Inicio</h4>
+                </div>
+            </a>
+
+            <a href="perfil.html">
+                <div class="option">
+                    <i class="far fa-file" title="Portafolio"></i>
+                    <h4>Perfil</h4>
+                </div>
+            </a>
+            <a href="../Pages/registro-form-producto.html">
+                <div class="option">
+                    <i class="fas fa-archive" title="Registros"></i>
+                    <h4>Productos</h4>
+                </div>
+            </a>
+
+            <a href="registro-form-factura.html">
+                <div class="option">
+                    <i class="far fa-sticky-note" title="Blog"></i>
+                    <h4>Factura</h4>
+                </div>
+            </a>
+
+            <a href="/Clientes">
+                <div class="option">
+                    <i class="far fa-id-badge" title="Contacto"></i>
+                    <h4>Cliente</h4>
+                </div>
+            </a>
+
+            <a href="login.html">
+                <div class="option">
+                    <i class="far fa-address-card" title="Nosotros"></i>
+                    <h4>Salir</h4>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+    <main>
+         <h1>Editar Cliente</h1>
+        <form action="http://localhost:4000/cliente" class="bordeporlados " method="POST" id="formcliente">
+            <div class="form-group row input_edit ">
+                <label for="nombreCliente" class="col-sm-2 col-form-label">Nombre del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" placeholder="Juan Jimenez" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="cedulaCliente" class="col-sm-2 col-form-label">Cédula del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="cedulaCliente" name="cedulaCliente" placeholder="1192804871" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="direccionCliente" class="col-sm-2 col-form-label">Dirección del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="direccionCliente" name="direccionCliente" placeholder="Cra 16 # 56 - 8" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="celularCliente" class="col-sm-2 col-form-label">Celular del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="celularCliente" name="celularCliente" placeholder="3043568926" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="correoCliente" class="col-sm-2 col-form-label">Correo del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="correoCliente" name="correoCliente" placeholder="juanjimenez@gmail.com" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-1">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </div>
+                <div class="col-sm-2">
+                    <button  onclick="window.location.href='/Clientes'" class="btn btn-danger">Volver</button>
+                </div>
+
+            </div>
+
+        </form>
+    </main>
+    <div id="list">
+
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#show").click(function() {
+                $.get("http://localhost:4000/cliente",
+                    function(data, status) {
+
+                        console.log(data);
+                    }
+                );
+            });
+        });
+    </script>
+
+    <script src="../js/menu.js"></script>
+    <script>
+        //Ejecutar función en el evento click
+document.getElementById("btn_open").addEventListener("click", open_close_menu);
+
+//Declaramos variables
+var side_menu = document.getElementById("menu_side");
+var btn_open = document.getElementById("btn_open");
+var body = document.getElementById("body");
+
+//Evento para mostrar y ocultar menú
+    function open_close_menu(){
+        body.classList.toggle("body_move");
+        side_menu.classList.toggle("menu__side_move");
+    }
+
+//Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
+
+if (window.innerWidth < 760){
+
+    body.classList.add("body_move");
+    side_menu.classList.add("menu__side_move");
+}
+
+//Haciendo el menú responsive(adaptable)
+
+window.addEventListener("resize", function(){
+
+    if (window.innerWidth > 760){
+
+        body.classList.remove("body_move");
+        side_menu.classList.remove("menu__side_move");
+    }
+
+    if (window.innerWidth < 760){
+
+        body.classList.add("body_move");
+        side_menu.classList.add("menu__side_move");
+    }
+
+});
+    </script>
+</body>
+
+</html>
