@@ -10,25 +10,25 @@
     <!-- Booststrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--  /Booststrap -->
-    <link rel="stylesheet" href="/css/index2.css">
+    <link rel="stylesheet" href="/css/indexAjax.css">
 
-    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="body">
 
-    <header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-        <h1 class="tituloheader">Cliente</h1>
-    </header>
+    
 
     <%- include('./layouts/sidebar.ejs'); %> 
 
-    <main>
-        <div class="row">
+    <section class="home-section">
+        <header>
+           
+            <h1 class="tituloheader">Cliente</h1>
+        </header>
+        <div class="">
             <div class="col-12 table-responsive">
             
               <button type="button" onclick="window.location.href='./ClientesRegistro'" class="btn btn-primary">Ingresar Nuevo Cliente</button>
@@ -127,7 +127,7 @@
                 </div>
             </div>
         </form> -->
-    </main>
+    </section class="home-section">
     <div id="list">
 
     </div>
@@ -138,7 +138,12 @@
   crossorigin="anonymous"></script>
 
 
-    <script src="/js/menu.js"></script>
+    
+    <script src="/js/IndexAjax.js"></script>
+    <script src="/js/scripts.js"></script>
+    <!-- <script src="../js/menu.js"></script> -->
+    <script src="/js/modal.js"></script>
+    <script src="/js/functions.js"></script>
   
 </body>
 

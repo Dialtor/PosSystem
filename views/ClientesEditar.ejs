@@ -10,7 +10,7 @@
     <!-- Booststrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--  /Booststrap -->
-    <link rel="stylesheet" href="/css/index2.css">
+    <link rel="stylesheet" href="/css/indexAjax.css">
 
 
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
@@ -25,59 +25,7 @@
         <h1 class="tituloheader">Cliente</h1>
     </header>
 
-    <div class="menu__side" id="menu_side">
-
-        <div class="name__page">
-            <i class="fab fa-buffer works"></i>
-            <h4>Sistema POS</h4>
-        </div>
-
-        <div class="options__menu">
-
-            <a href="index2.html" class="selected">
-                <div class="option">
-                    <i class="fas fa-home" title="Inicio" style="color:darkgoldenrod;"></i>
-                    <h4>Inicio</h4>
-                </div>
-            </a>
-
-            <a href="perfil.html">
-                <div class="option">
-                    <i class="far fa-file" title="Portafolio"></i>
-                    <h4>Perfil</h4>
-                </div>
-            </a>
-            <a href="../Pages/registro-form-producto.html">
-                <div class="option">
-                    <i class="fas fa-archive" title="Registros"></i>
-                    <h4>Productos</h4>
-                </div>
-            </a>
-
-            <a href="registro-form-factura.html">
-                <div class="option">
-                    <i class="far fa-sticky-note" title="Blog"></i>
-                    <h4>Factura</h4>
-                </div>
-            </a>
-
-            <a href="/Clientes">
-                <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>Cliente</h4>
-                </div>
-            </a>
-
-            <a href="login.html">
-                <div class="option">
-                    <i class="far fa-address-card" title="Nosotros"></i>
-                    <h4>Salir</h4>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
+    <%- include('./layouts/sidebar.ejs'); %> 
 
     <main>
          <h1>Editar Cliente</h1>
@@ -127,61 +75,10 @@
     <div id="list">
 
     </div>
-    <script>
-        $(document).ready(function() {
-            $("#show").click(function() {
-                $.get("http://localhost:4000/cliente",
-                    function(data, status) {
+  
 
-                        console.log(data);
-                    }
-                );
-            });
-        });
-    </script>
-
-    <script src="../js/menu.js"></script>
-    <script>
-        //Ejecutar función en el evento click
-document.getElementById("btn_open").addEventListener("click", open_close_menu);
-
-//Declaramos variables
-var side_menu = document.getElementById("menu_side");
-var btn_open = document.getElementById("btn_open");
-var body = document.getElementById("body");
-
-//Evento para mostrar y ocultar menú
-    function open_close_menu(){
-        body.classList.toggle("body_move");
-        side_menu.classList.toggle("menu__side_move");
-    }
-
-//Si el ancho de la página es menor a 760px, ocultará el menú al recargar la página
-
-if (window.innerWidth < 760){
-
-    body.classList.add("body_move");
-    side_menu.classList.add("menu__side_move");
-}
-
-//Haciendo el menú responsive(adaptable)
-
-window.addEventListener("resize", function(){
-
-    if (window.innerWidth > 760){
-
-        body.classList.remove("body_move");
-        side_menu.classList.remove("menu__side_move");
-    }
-
-    if (window.innerWidth < 760){
-
-        body.classList.add("body_move");
-        side_menu.classList.add("menu__side_move");
-    }
-
-});
-    </script>
+    <script src="/js/menu.js"></script>
+  
 </body>
 
 </html>

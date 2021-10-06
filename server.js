@@ -23,7 +23,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // routes
-app.use(require('./routes/index'));
+app.use(require('./routes/routes'));
 
 // static files
 app.use(express.static(path.join(__dirname, 'public')));

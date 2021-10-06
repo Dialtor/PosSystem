@@ -1,53 +1,75 @@
-<div class="menu__side" id="menu_side">
-
-    <div class="name__page">
-        <i class="fab fa-buffer works"></i>
-        <h4>Sistema POS</h4>
+<div class="sidebar">
+    <div class="logo-details">
+        <!-- <i class='bx bxs-data icon'></i> -->
+        <img class="icon" src="/img/logo.png" alt="" width="50" height="50">
+        <div class="logo_name">Sistema POS</div>
+        <i class='bx bx-menu' id="btn" ></i>
     </div>
+    <ul class="nav-list">
+      <li>
+          <i class='bx bx-search' ></i>
+         <input type="text" placeholder="Search...">
+         <span class="tooltip">Buscar</span>
+      </li>
 
-    <div class="options__menu">	
-
-        <a href="/Index" class="selected">
-            <div class="option">
-                <i class="fas fa-home" title="Inicio" style="color:darkgoldenrod;"></i>
-                <h4>Inicio</h4>
-            </div>
+      <li id="panel">
+        <a href="/Index">
+          <i class='bx bx-grid-alt'></i>
+          <span  class="links_name">Inicio</span>
         </a>
+         <span class="tooltip">Inicio</span>
+      </li>
 
-        <a href="/Perfil">
-            <div class="option">
-                <i class="far fa-file" title="Portafolio"></i>
-                <h4>Perfil</h4>
-            </div>
+      <li id="perfil">
+       <a href="/Perfil">
+         <i class='bx bx-user' ></i>
+         <span class="links_name">Gestionar usuarios</span>
+       </a>
+       <span class="tooltip">Gestionar usuarios</span>
+     </li>
+     
+     <li id="/Productos">
+        <a href="#">
+         <i class='bx bx-archive'></i>
+          <span class="links_name">Productos</span>
         </a>
-        <a href="/Productos">
-            <div class="option">
-                <i class="fas fa-archive" title="Registros"></i>
-                <h4>Productos</h4>
-            </div>
-        </a>
+        <span class="tooltip">Productos</span>
+      </li>
+ 
 
-        <a href="../Pages/registro-form-factura.html">
-            <div class="option">
-                <i class="far fa-sticky-note" title="Blog"></i>
-                <h4>Factura</h4>
-            </div>
-        </a>
+     <li>
+       <a href="/Facturas">
+         <i class='bx bx-pie-chart-alt-2' ></i>
+         <span class="links_name">Facturas</span>
+       </a>
+       <span class="tooltip">Facturas</span>
+     </li>
 
-        <a href="Clientes">
-            <div class="option">
-                <i class="far fa-id-badge" title="Contacto"></i>
-                <h4>Cliente</h4>
-            </div>
-        </a>
+     <li>
+       <a href="/Clientes">
+         <i class='bx bx-folder' ></i>
+         <span class="links_name">Clientes</span>
+       </a>
+       <span class="tooltip">Clientes</span>
+     </li>
 
-        <a href="login.html">
-            <div class="option">
-                <i class="far fa-address-card" title="Nosotros"></i>
-                <h4>Salir</h4>
-            </div>
-        </a>
+     <li>
+       <a href="#">
+         <i class='bx bx-cog' ></i>
+         <span class="links_name">Ajustes</span>
+       </a>
+       <span class="tooltip">Ajustes</span>
+     </li>
 
-    </div>
-
-</div>
+     <li class="profile">
+         <div class="profile-details">
+           <img src="/img/perfil.png" alt="profileImg" width="200px" height="30px">
+           <div class="name_job">
+             <div class="name">Bienvenido</div>
+             <div class="job">User</div>
+           </div>
+         
+           <i class='bx bx-info-circle' id="log_out"></i>
+     </li>
+    </ul>
+  </div>

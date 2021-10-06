@@ -1,39 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-    <!-- Booststrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!--  /Booststrap -->
-    <link rel="stylesheet" href="/css/index2.css">
-    
-   
-    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
-</head>
-<body id="body">
-    
-    <header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-        <h1 class="tituloheader">Inicio</h1>
+    <title>Sistema POS</title>
+    <%- include('./layouts/headersidebar.ejs');  %> 
+   </head>
+<body>
+ 
 
+    <%- include('./layouts/sidebar.ejs'); %> 
 
-        <%- include('./layouts/sidebar.ejs'); %> 
-    </header>
+    <section id="cargarPanel" id="cargarPerfil" id="cargarProductos" class="home-section">
+        <div class="text">/Inicio</div>
+      </section>
+  
 
+    <script>
 
+        function ajax(url){
+            const http = new XMLHttpRequest();
+            http.onreadystatechange = function(){
+                if(this.readyState == 4 && this.status == 200){
+                            // console.log(this.responseText);
+                            document.getElementById("cargarPanel").innerHTML = this.responseText;
+                            document.getElementById("cargarPerfil").innerHTML = this.responseText;
+                            document.getElementById("cargarProductos").innerHTML = this.responseText;
+                            document.getElementById("").innerHTML = this.responseText;
+                }
+            }
+            http.open("GET", url);
+            http.send();
+        }
+        document.getElementById("panel").addEventListener('click', function(){
+            
+            ajax('./AjaxRequest/panel.html');
+        });
+        
+        document.getElementById("perfil").addEventListener('click', function(){
+            ajax('/Perfil');
+        });
 
-    <main>
-       
-
-       
-    </main>
-
-    <script src="/js/menu.js"></script>
+        document.getElementById("productos").addEventListener('click', function(){
+            ajax('./AjaxRequest/productos.html')
+        });
+    </script>
+    <!-- <script>
+        $(document).ready(function (){
+            $("panel").click(function(e){
+                e.preventDefault();
+                $.get("./AjaxRequest/panel.html",function(data,textStatus,jqXHR){
+                    console.log(data);
+                    console.log(textStatus);
+                    console.log(jqXHR);
+                });
+            }) ;
+        });
+    </script> -->
+    <%- include('./layouts/scriptsidebar.ejs'); %> 
 </body>
 </html>
