@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <%- include('./layouts/headersidebar.ejs');  %> 
+
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body">
+
+  
+    <%- include('./layouts/sidebar.ejs'); %> 
+
+    <section class="home-section">
+        <header>
+            <div class="icon__menu">
+                <i class="fas fa-bars" id="btn_open"></i>
+            </div>
+            <h1 class="tituloheader">Cliente</h1>
+        </header>
+    
+         <h1>Eliminar Cliente</h1>
+         
+    <form action="/ClientesEditar/Guardar/<%- eliminar._id %> " class="bordeporlados " method="POST" id="formcliente">
+                <div class="form-group input_edit ">
+                    <label  class="col-sm-2 col-form-label">ID UNICO</label>
+                    <div class="col-sm-10 ">
+                        <input type="text" class="form-control"  placeholder="" readonly aria-disabled="true" name="_id" value="<%= eliminar._id %>">
+                    </div>
+                </div>
+                <div class="form-group input_edit ">
+                    <label  class="col-sm-2 col-form-label">Nombre del cliente</label>
+                    <div class="col-sm-10 ">
+                        <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" placeholder="Juan Jimenez" value="<%= eliminar.nombreCliente %>" required>
+                    </div>
+                </div>
+                <div class="form-group  input_edit">
+                    <label  class="col-sm-2 col-form-label">Cédula del cliente</label>
+                    <div class="col-sm-10 ">
+                        <input type="number" class="form-control" id="cedulaCliente" name="cedulaCliente" placeholder="1192804871" value="<%= eliminar.cedulaCliente %>" required>
+                    </div>
+                </div>
+                <div class="form-group  input_edit">
+                    <label  class="col-sm-2 col-form-label">Dirección del cliente</label>
+                    <div class="col-sm-10 ">
+                        <input type="text" class="form-control" id="direccionCliente" name="direccionCliente" placeholder="Cra 16 # 56 - 8" value="<%= eliminar.direccionCliente %>" required>
+                    </div>
+                </div>
+                <div class="form-group  input_edit">
+                    <label  class="col-sm-2 col-form-label">Celular del cliente</label>
+                    <div class="col-sm-10 ">
+                        <input type="number" class="form-control" id="celularCliente" name="celularCliente" placeholder="3043568926" value="<%= eliminar.celularCliente %>" required>
+                    </div>
+                </div>
+                <div class="form-group  input_edit">
+                    <label class="col-sm-2 col-form-label">Correo del cliente</label>
+                    <div class="col-sm-10 ">
+                        <input type="text" class="form-control" id="correoCliente" name="correoCliente" placeholder="juanjimenez@gmail.com" value="<%= eliminar.correoCliente %>" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-1">
+                        <button type="submit" class="btn btn-success" >Actualizar</button >
+                    </div>
+                    <div class="p-3 col-sm-2">
+                        <a href="/Clientes" class="btn btn-primary">Volver</a>
+                    </div>
+                </div>
+               
+
+    </form>
+  
+           
+    </section>
+    <div id="list">
+
+    </div>
+  
+
+    <%- include('./layouts/scriptsidebar.ejs');  %> 
+  
+</body>
+
+</html>
