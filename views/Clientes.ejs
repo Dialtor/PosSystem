@@ -26,7 +26,7 @@
     <section class="home-section">
         <header>
            
-            <h1 class="tituloheader">Cliente</h1>
+            <h1 class="tituloheader text">Inicio/Cliente</h1>
         </header>
         <div class="">
             <div class="col-12 table-responsive">
@@ -58,9 +58,11 @@
                     <td><%- cliente.celularCliente %></td>
                     <td><%= cliente.correoCliente %></td>
                     <td>
-                        <button type="button" class="btn btn-primary"><i class="far fa-eye"></i></button>
-                        <button type="button" class="btn btn-success"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        <a href="/Detalle/<%- cliente._id %> " type="button" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                        <a href="/ClientesEditar/<%- cliente._id %> " type="button" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a href="/ClientesEliminar/<%- cliente._id %> " type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a>
+                        <!-- <form action="/ClientesEditar/"><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></form>
+                        <form action="" method="POST"> <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></form> -->
                     </td>
                 </tr>
 
