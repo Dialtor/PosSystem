@@ -35,7 +35,7 @@ const findByIdAndUpdate = require('../models/Clientes');
 
     //CONTROLADORES
 
-    //Controlador Registro
+    //INSERTAR
     router.get('/Clientes', async (req, res) =>{
         const clientes = await Cliente.find();
         res.render('Clientes', {clientes: clientes})
@@ -43,14 +43,15 @@ const findByIdAndUpdate = require('../models/Clientes');
     });
 
    
-
+    //SELECIONA EL PRODUCTO PARA EDITAR Y LO MUESTRA EN LA VISTA
     router.get('/ClientesEditar/:id', async (req, res) =>{
         const editar =  await Cliente.findById(req.params.id);
        // console.log(clientes);
        res.render('ClientesEditar', {editar: editar})
        
    });
-
+     
+    //ACTUALIZA 
     router.post('/ClientesEditar/Guardar/:id', (req,res) => {
         const idCliente = (req.params.id);
         console.log(idCliente);
@@ -69,7 +70,7 @@ const findByIdAndUpdate = require('../models/Clientes');
         })
     })
 
-
+  //ELIMINAR
     router.post('/ClientesEliminar/:id', async (req,res) => {
          await Cliente.remove({ _id: req.params.id }, function(err, cliente) {
             if (err)
@@ -80,7 +81,7 @@ const findByIdAndUpdate = require('../models/Clientes');
         });
 });
 
-
+   
     router.post('/ClientesRegistro',  async(req,res) =>{
         const newCliente = new Cliente(req.body);
         await newCliente.save();
