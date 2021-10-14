@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <!-- Booststrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--  /Booststrap -->
+    <link rel="stylesheet" href="/css/indexAjax.css">
+
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body">
+
+
+
+    <%- include('./layouts/sidebar.ejs'); %>
+
+        <section class="home-section">
+            <header>
+
+                <h1 class="tituloheader text">Inicio/Categoria Producto</h1>
+            </header>
+            <div class="">
+                <div class="col-12 table-responsive">
+
+                    <button type="button" onclick="window.location.href='./CategoriaProductoRegistro'" class="btn btn-primary">Ingresar Nueva Categoria</button>
+                    <br>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Categoria</th>
+                            </tr>>
+                        </thead>
+                        <tbody>
+
+
+                            <% categoriaProducto.forEach(function (categoriaProducto) { %>
+                                <tr id="id_<%= categoriaProducto._id %>">
+                                    <th scope="row">
+                                        <%= categoriaProducto._id %>
+                                    </th>
+                                    <td>
+                                        <%- categoriaProducto.NombreCategoria %>
+                                    </td>
+                                    <td>
+                                        <a href="/Detalle/<%- categoriaProducto._id %> " type="button" class="btn btn-primary"><i class="far fa-eye"></i></a>
+                                        <a href="/ClientesEditar/<%- categoriaProducto._id %> " type="button" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                                        <form action="/ClientesEliminar/<%- categoriaProducto._id %> " method="POST"> <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></form>
+                                        <!-- <a href="/ClientesEliminar/<%- cliente._id %> " type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></a> -->
+                                        <!-- <form action="/ClientesEditar/"><button type="submit" class="btn btn-success"><i class="fas fa-edit"></i></button></form>
+                        <form action="" method="POST"> <button type="submit" class="btn btn-danger"><i class="far fa-trash-alt"></i></button></form> -->
+                                    </td>
+                                </tr>
+
+                                <% }) %>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            <!-- <form action="http://localhost:4000/cliente" class="bordeporlados " method="POST" id="formcliente">
+            <div class="form-group row input_edit ">
+                <label for="nombreCliente" class="col-sm-2 col-form-label">Nombre del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="nombreCliente" name="nombreCliente" placeholder="Juan Jimenez" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="cedulaCliente" class="col-sm-2 col-form-label">Cédula del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="cedulaCliente" name="cedulaCliente" placeholder="1192804871" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="direccionCliente" class="col-sm-2 col-form-label">Dirección del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="direccionCliente" name="direccionCliente" placeholder="Cra 16 # 56 - 8" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="celularCliente" class="col-sm-2 col-form-label">Celular del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="number" class="form-control" id="celularCliente" name="celularCliente" placeholder="3043568926" required>
+                </div>
+            </div>
+            <div class="form-group row input_edit">
+                <label for="correoCliente" class="col-sm-2 col-form-label">Correo del cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="correoCliente" name="correoCliente" placeholder="juanjimenez@gmail.com" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Ingresar</button>
+                </div>
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+
+            </div>
+
+        </form>
+        <form action="http://localhost:4000/cliente/:cedulaCliente" class="bordeporlados " method="POST">
+            <div class="form-group row input_edit ">
+                <label for="cliente_id" class="col-sm-2 col-form-label">Eliminar un cliente</label>
+                <div class="col-sm-10 ">
+                    <input type="text" class="form-control" id="cliente_id" name="cliente_id" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+        </form> -->
+        </section class="home-section">
+        <div id="list">
+
+        </div>
+        <!-- JQUERY -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+
+        <script src="/js/IndexAjax.js"></script>
+        <script src="/js/scripts.js"></script>
+        <!-- <script src="../js/menu.js"></script> -->
+        <script src="/js/modal.js"></script>
+        <script src="/js/functions.js"></script>
+
+</body>
+
+</html>

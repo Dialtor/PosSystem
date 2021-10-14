@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Middlewares
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Routes
@@ -28,32 +28,32 @@ app.use(require('./routes/routes'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Puesto a conectar.
-app.listen(4000, () =>{
+app.listen(4000, () => {
     console.log('Aplicación Funcionando en el puerto: 4000');
 });
 
 
 // router.get('/', (req,res) =>{
 //     // res.sendFile(path.resolve(__dirname, './views/login.ejs'));
-    
+
 //     res.render('login');
 // })
 
 // app.get('/login', (req,res) =>{
 //     res.sendFile(path.resolve(__dirname, './views/login.html'));
-    
+
 //    // res.render('./views/layouts/');
 // })
 
 // app.get('/Index2', (req,res) =>{
 //      res.sendFile(path.resolve(__dirname, './views/index2.html'));
-     
+
 //     // res.render('./views/layouts/');
 // })
 // app.get('/Clientes', async (req,res) =>{
 
 //     const clientes = await Usuario.find({});
-   
+
 //     console.log(clientes);
 
 //      res.render('./views/Clientes.ejs', {
@@ -87,7 +87,3 @@ app.listen(4000, () =>{
 //         res.redirect('/');
 //     })
 // });
-
-
-
-
